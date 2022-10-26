@@ -5,11 +5,83 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/main.css" />
-        <title>Document</title>
+        <title>Meme Generator</title>
     </head>
-    <body>
+    <body onload="onInit()">
+        <div class="main-screen hide full" onclick="onToggleMenu()"></div>
+        <header class="main-header full main-layout">
+            <!-- CR This Part -->
+            <section class="header-content header-layout">
+                <div class="logo header-logo">
+                    <img class="logo-img" src="img/logo.png" />
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list flex justify-end clean-list">
+                        <li onclick="onOpenMemes(this)">
+                            <a href="#">Memes</a>
+                        </li>
+                        <li onclick="onInit(this)">
+                            <a href="#">Gallery</a>
+                        </li>
+                        <li onclick="onOpenAbout(this)">
+                            <a href="#">About</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="menu-btn" type="button" onclick="onToggleMenu()">
+                    <!-- ☰ -->
+                    <img src="img/menu-btn.png" />
+                </button>
+            </section>
+        </header>
         <section class="gallery"></section>
-        <section class="editor"></section>
+        <section class="editor">
+            <button onclick="onInit()">Go Back</button>
+            <canvas
+                id="canvas"
+                height="500"
+                width="500"
+                style="border: 1px solid black"
+            ></canvas>
+            <form></form>
+            <input
+                class="stroke-color"
+                type="color"
+                oninput="onSetStrokeColor(this.value)"
+            />
+            <input
+                class="font-color"
+                type="color"
+                oninput="onSetFontColor(this.value)"
+                value="#FFFFFF"
+            />
+            <button class="switch-line" onclick="onSwitchLine()">
+                Switch Line
+            </button>
+            <button class="add-line" onclick="onAddLine()">Add Line</button>
+            <button class="add-line" onclick="onDeleteLine()">
+                Delete Line
+            </button>
+            <button class="increase-font" onclick="onChangeSize(1)">+</button>
+            <button class="decrease-font" onclick="onChangeSize(-1)">-</button>
+            <a href="#" onclick="downloadCanvas(this)" download="file-name">
+                Download
+            </a>
+        </section>
+        <section class="about">
+            <h1>Welcome to my MemeGen</h1>
+            <p>Hope you like it :)</p>
+            <p class="smaller-txt">
+                © 2022 All Rights Reserved to Elihai Sugarman
+            </p>
+        </section>
+        <section class="saved-memes">
+            <h1>There are no ready memes yet...</h1>
+        </section>
+
+        <script src="js/memeService.js"></script>
+        <script src="js/memeController.js"></script>
+        <script src="js/galleryController.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

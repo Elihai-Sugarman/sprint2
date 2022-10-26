@@ -1,3 +1,141 @@
+/* TYPOGRAPHY */
+
+@font-face {
+    font-family: roboto;
+    src: url(/fonts/roboto/Roboto-Black.ttf);
+}
+
+html {
+    direction: ltr;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: green;
+    background-color: #f8f8f8;
+    text-align: center;
+    font-family: 'roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #727272;
+}
+
+.smaller-txt {
+    font-size: 0.7rem;
+}
+
+.header-layout {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    /* left: 0px; */
+    top: 0px;
+    background: #ffffff;
+    box-shadow: 0px 1px 0px #dbdbdb;
+}
+
+.logo-img {
+    position: absolute;
+    width: 152px;
+    height: 32px;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-nav {
+    justify-content: center;
+    width: 100vw;
+    display: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    list-style-type: none;
+    justify-content: center;
+    width: 100%;
+}
+
+.main-nav ul li {
+    /* margin-top: 70%; */
+    width: 100%;
+}
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    border: none;
+}
+
+body.show-menu * {
+    background: #ff9826;
+    box-shadow: 0px 1px 0px #dbdbdb;
+}
+
+body.show-menu .logo-img {
+    display: none;
+}
+
+body.show-menu .main-nav {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+body.show-menu .main-nav ul > * {
+    height: 33.33vh;
+    /* justify-content: center; */
+    text-align: center;
+}
+
+.menu-btn {
+    position: absolute;
+    /* left: 90.93%; */
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* bottom: 96.43%; */
+
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-flow: dense;
+    gap: 10px;
+    padding: 60px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.item {
+    background-color: lightskyblue;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 13px;
+}
+
+img:not(.logo-img) {
+    width: 100%;
+}
+
+.pick {
+    cursor: pointer;
+}
+
+.editor {
+    position: relative;
+    width: 80vw;
+}
+
+#canvas {
+    margin-top: 20px;
+    max-width: 80vw;
 }
