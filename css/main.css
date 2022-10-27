@@ -45,9 +45,6 @@ body.show-menu .logo-img {
 
 body.show-menu .main-nav {
     display: flex;
-    /* inset: 0; */
-    /* width: 100vw;
-        height: 100vh; */
     z-index: 5;
 }
 
@@ -57,7 +54,6 @@ body.show-menu img.pick {
 
 body.show-menu .main-nav ul > * {
     height: 33.33vh;
-    /* justify-content: center; */
     text-align: center;
 }
 
@@ -73,7 +69,6 @@ body.show-menu .menu-btn {
     position: relative;
     width: 100%;
     height: 50px;
-    /* left: 0px; */
     top: 0px;
     margin-top: 10px;
     background: #ffffff;
@@ -105,7 +100,6 @@ body.show-menu .menu-btn {
 }
 
 .main-nav ul li {
-    /* margin-top: 70%; */
     width: 100vw;
     cursor: pointer;
     padding-top: 100px;
@@ -125,11 +119,9 @@ ul li a {
 
 .menu-btn {
     position: absolute;
-    /* left: 90.93%; */
     right: 5%;
     top: 50%;
     transform: translateY(-50%);
-    /* bottom: 96.43%; */
 
     background: #ffffff;
     border: none;
@@ -214,7 +206,6 @@ ul li a {
 
 .editor-tools-second-line {
     margin-left: 12%;
-    /* margin-left: 2%; */
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -242,7 +233,6 @@ ul li a {
     margin-top: 10px;
     width: 400px;
     height: 2em;
-    /* border: none; */
 }
 
 .download-meme,
@@ -252,7 +242,6 @@ ul li a {
     top: 40px;
     margin-bottom: 30px;
     width: 150px;
-    /* height: 42px; */
 
     background: #ff9826;
     border: 1px solid #ff9826;
@@ -290,7 +279,5 @@ body.show-menu .flexible-btn {
 }
 
 .meme-canvas {
-    /* display: none; */
     background-color: #ff9826;
-    /* border: 1px solid #ff9826; */
 }

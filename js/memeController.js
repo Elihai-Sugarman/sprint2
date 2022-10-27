@@ -4,13 +4,10 @@ let gElCanvas
 let gCtx
 
 function renderMeme() {
-    // const { selectedImgId, selectedLineIdx, lines } = getMeme()
     renderInput()
     gElCanvas = document.querySelector('.editor #canvas')
     gCtx = gElCanvas.getContext('2d')
     renderPicture()
-    // resizeCanvas()
-    // window.addEventListener('resize', resizeCanvas)
 }
 
 function renderInput() {
@@ -23,7 +20,6 @@ function renderInput() {
 function renderPicture() {
     drawImgFromlocal(getImg())
     setTimeout(drawLines, 0, getLines())
-    // setTimeout(drawLines, 20, getLines())
 }
 
 function drawLines(lines) {
@@ -42,14 +38,6 @@ function drawImgFromlocal({ url }) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height) //img,x,y,xEnd,yEnd
     }
-}
-
-function resizeCanvas() {
-    const elContainer = document.querySelector('.editor')
-    // Note: changing the canvas dimension this way clears the canvas
-    gElCanvas.width = elContainer.offsetWidth - 20
-    // Unless needed, better keep height fixed.
-    // gElCanvas.height = elContainer.offsetHeight
 }
 
 function drawText(line, x, y) {
