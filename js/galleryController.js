@@ -13,7 +13,12 @@ function renderGallery() {
 
 function onImgSelect(ImgId) {
     document.querySelector('.gallery').style.display = 'none'
+    document.querySelector('.flexible-btn').style.display = 'none'
     document.querySelector('.editor').style.display = 'inline'
     setMeme(ImgId)
     renderMeme()
+}
+
+function onClickFlexible() {
+    generateRandomMeme()
 }

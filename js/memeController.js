@@ -4,9 +4,9 @@ let gElCanvas
 let gCtx
 
 function renderMeme() {
-    const { selectedImgId, selectedLineIdx, lines } = getMeme()
+    // const { selectedImgId, selectedLineIdx, lines } = getMeme()
     renderInput()
-    gElCanvas = document.querySelector('#canvas')
+    gElCanvas = document.querySelector('.editor #canvas')
     gCtx = gElCanvas.getContext('2d')
     renderPicture()
     // resizeCanvas()
@@ -27,9 +27,6 @@ function renderPicture() {
 }
 
 function drawLines(lines) {
-    // lines.forEach((line) =>
-    //     drawText(line, gElCanvas.width / 2, gElCanvas.height / 10)
-    // )
     for (var i = 0; i < lines.length; i++) {
         let x = gElCanvas.width / 2
         let y = gElCanvas.height / 8
@@ -56,7 +53,6 @@ function resizeCanvas() {
 }
 
 function drawText(line, x, y) {
-    // gCtx.lineWidth = line.size
     gCtx.lineWidth = 1
     gCtx.textAlign = line.align
     gCtx.fillStyle = line.color
@@ -123,4 +119,13 @@ function downloadCanvas(elLink) {
     // to pull information from remote web sites without permission.
     elLink.href = data
     elLink.download = 'my-img.jpg'
+}
+
+function onSaveMeme() {
+    let savedMemes = loadFromStorage(savedMemesKey)
+    if (gCurrSavedMeme >= 0) savedMemes.splice(gCurrSavedMeme, 1)
+    savedMemes.push(getMeme())
+    saveToStorage(savedMemesKey, savedMemes)
+    savedMemes = loadFromStorage(savedMemesKey)
+    onOpenMemes()
 }

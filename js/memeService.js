@@ -21,6 +21,27 @@ var gImgs = [
     { id: 17, url: 'img/17.jpg', keywords: ['man', 'putin', 'politics'] },
     { id: 18, url: 'img/18.jpg', keywords: ['toys', 'movies'] },
 ]
+
+var gTitles = [
+    'TOLD YOU SO.',
+    'Are you for real?',
+    'Sure... wait, what?',
+    'That never happened',
+    'Seriously?',
+    `I don't get paid enough for this...`,
+    'Stop. Please Stop.',
+    'For your sake...',
+    'What a surprise...',
+    `I'm gonna fail this sprint...`,
+    'Trust me',
+    'How about... no?',
+    'Pleaaaaaaaase',
+    'Oh, really?',
+    `I couldn't care less`,
+    `I wish I could`,
+    `But I don't want to...`,
+]
+
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -51,6 +72,19 @@ function getCurrLine() {
     return gMeme.lines[gMeme.selectedLineIdx]
 }
 
+function setGMeme(memeIdx) {
+    const savedMemes = loadFromStorage(savedMemesKey)
+    gMeme = savedMemes[memeIdx]
+}
+
+function getImgs() {
+    return gImgs
+}
+
+function getTitles() {
+    return gTitles
+}
+
 function setLineTxt(input) {
     if (!gMeme.lines.length) return
     gMeme.lines[gMeme.selectedLineIdx].txt = input
@@ -62,7 +96,7 @@ function setMeme(ImgId) {
         selectedLineIdx: 0,
         lines: [
             {
-                txt: 'TOP TEXT',
+                txt: 'FIRST TEXT',
                 size: 30,
                 align: 'center',
                 color: 'white',
@@ -88,6 +122,10 @@ function changeSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
 }
 
+function massiveChangeSize(newSize) {
+    gMeme.lines[gMeme.selectedLineIdx].size = newSize
+}
+
 function switchLine() {
     gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
@@ -98,7 +136,7 @@ function addLine() {
     const linesNum = gMeme.lines.length
     if (linesNum === 0) {
         gMeme.lines.push({
-            txt: 'TOP TEXT',
+            txt: 'FIRST TEXT',
             size: 30,
             align: 'center',
             color: 'white',
@@ -106,7 +144,7 @@ function addLine() {
         })
     } else if (linesNum === 1) {
         gMeme.lines.push({
-            txt: 'BOTTOM TEXT',
+            txt: 'SECOND TEXT',
             size: 30,
             align: 'center',
             color: 'white',
@@ -114,7 +152,7 @@ function addLine() {
         })
     } else {
         gMeme.lines.push({
-            txt: 'CENTER TEXT',
+            txt: 'ANOTHER TEXT...',
             size: 30,
             align: 'center',
             color: 'white',

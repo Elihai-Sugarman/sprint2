@@ -8,11 +8,11 @@
         <title>Meme Generator</title>
     </head>
     <body onload="onInit()">
-        <div class="main-screen hide full" onclick="onToggleMenu()"></div>
-        <header class="main-header full main-layout">
+        <div class="main-screen hide" onclick="onToggleMenu()"></div>
+        <header class="main-header main-layout">
             <section class="header-content header-layout">
                 <div class="logo header-logo">
-                    <a onclick="onInit()"
+                    <a onclick="onOpenGallery()"
                         ><img class="logo-img" src="img/logo.png"
                     /></a>
                 </div>
@@ -21,7 +21,7 @@
                         <li onclick="onOpenMemes(this)">
                             <a href="#">Memes</a>
                         </li>
-                        <li onclick="onInit(this)">
+                        <li onclick="onOpenGallery(this)">
                             <a href="#">Gallery</a>
                         </li>
                         <li onclick="onOpenAbout(this)">
@@ -34,10 +34,15 @@
                 </button>
             </section>
         </header>
+        <button class="flexible-btn" onclick="onClickFlexible()">
+            I'm flexible
+        </button>
         <section class="gallery"></section>
         <div class="editor">
             <div class="canvas-container">
-                <button class="go-back" onclick="onInit()">Go Back</button>
+                <button class="go-back" onclick="onOpenGallery()">
+                    Go Back
+                </button>
                 <canvas id="canvas" height="500" width="500"></canvas>
             </div>
             <div class="editor-tools">
@@ -47,47 +52,53 @@
                     <!-- </div> -->
                     <!-- <div class="first-line-tools"> -->
                     <button
-                        class="no-border switch-line"
+                        class="no-border switch-line click"
                         onclick="onSwitchLine()"
                     >
                         <img src="img/switch.png" />
                     </button>
-                    <button class="no-border add-line" onclick="onAddLine()">
+                    <button
+                        class="no-border add-line click"
+                        onclick="onAddLine()"
+                    >
                         <img src="img/add.png" />
                     </button>
-                    <button class="no-border add-line" onclick="onDeleteLine()">
+                    <button
+                        class="no-border add-line click"
+                        onclick="onDeleteLine()"
+                    >
                         <img src="img/delete.png" />
                     </button>
                     <!-- </div> -->
                 </div>
                 <div class="editor-tools-second-line">
                     <button
-                        class="no-border decrease-font"
+                        class="no-border decrease-font click"
                         onclick="onChangeSize(-1)"
                     >
                         A
                     </button>
                     <button
-                        class="no-border increase-font"
+                        class="no-border increase-font click"
                         onclick="onChangeSize(1)"
                     >
                         A
                     </button>
                     <img src="img/line.png" />
                     <button
-                        class="no-border align-left"
+                        class="no-border align-left click"
                         onclick="onChangeAlign('right')"
                     >
                         <img src="img/align-left.png" />
                     </button>
                     <button
-                        class="no-border align-center"
+                        class="no-border align-center click"
                         onclick="onChangeAlign('center')"
                     >
                         <img src="img/align-center.png" />
                     </button>
                     <button
-                        class="no-border align-right"
+                        class="no-border align-right click"
                         onclick="onChangeAlign('left')"
                     >
                         <img src="img/align-right.png" />
@@ -95,7 +106,11 @@
                     <img src="img/line.png" />
                     <div>
                         <label for="stroke-color">
-                            <img src="img/stroke-font.png" alt="" />
+                            <img
+                                class="click"
+                                src="img/stroke-font.png"
+                                alt=""
+                            />
                         </label>
                         <input
                             id="stroke-color"
@@ -106,7 +121,7 @@
                     </div>
                     <div>
                         <label for="fill-color">
-                            <img src="img/fill-font.png" alt=""
+                            <img class="click" src="img/fill-font.png" alt=""
                         /></label>
                         <input
                             id="fill-color"
@@ -127,6 +142,9 @@
                     >
                         Download
                     </a>
+                    <button class="save-meme" onclick="onSaveMeme()">
+                        Save
+                    </button>
                 </div>
             </div>
         </div>
@@ -141,9 +159,12 @@
             <h1>This feature is still in developement...</h1>
         </section>
 
+        <script src="js/storageService.js"></script>
         <script src="js/memeService.js"></script>
         <script src="js/memeController.js"></script>
+        <script src="js/galleryService.js"></script>
         <script src="js/galleryController.js"></script>
+        <script src="js/memesController.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

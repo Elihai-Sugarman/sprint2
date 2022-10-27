@@ -21,7 +21,7 @@ body {
     font-weight: 500;
     font-size: 18px;
     color: #727272;
-    /* min-width: 500px; */
+    min-width: 500px;
 }
 
 .clean-list {
@@ -146,6 +146,16 @@ ul li a {
     margin: 0 auto;
 }
 
+.saved-memes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-flow: dense;
+    gap: 10px;
+    padding: 60px;
+    width: auto;
+    margin: 0 auto;
+}
+
 .item {
     background-color: lightskyblue;
     font-family: sans-serif;
@@ -176,9 +186,10 @@ ul li a {
     width: 80vw;
 }
 
-#canvas {
+.editor #canvas {
     margin-top: 20px;
     max-width: 80vw;
+    min-width: 400px;
 }
 
 .editor-tools {
@@ -234,15 +245,13 @@ ul li a {
     /* border: none; */
 }
 
-.download-meme-ontainer {
-    margin-top: 20px;
-}
-
-.download-meme {
+.download-meme,
+.save-meme,
+.flexible-btn {
     position: relative;
     top: 40px;
     margin-bottom: 30px;
-    /* width: 350px; */
+    width: 150px;
     /* height: 42px; */
 
     background: #ff9826;
@@ -256,6 +265,16 @@ ul li a {
     font-weight: lighter;
     text-decoration: none;
     padding: 10px;
+    cursor: pointer;
+}
+
+.download-meme {
+    margin-right: 150px;
+}
+
+body.show-menu .download-meme,
+body.show-menu .save-meme,
+body.show-menu .flexible-btn {
     z-index: -1;
 }
 
@@ -264,4 +283,14 @@ ul li a {
         display: flex;
         flex-direction: row;
     }
+}
+
+.click {
+    cursor: pointer;
+}
+
+.meme-canvas {
+    /* display: none; */
+    background-color: #ff9826;
+    /* border: 1px solid #ff9826; */
 }
