@@ -80,6 +80,10 @@ function setFontColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
+function changeAlign(align) {
+    gMeme.lines[gMeme.selectedLineIdx].align = align
+}
+
 function changeSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
 }

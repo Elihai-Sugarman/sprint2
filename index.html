@@ -10,10 +10,11 @@
     <body onload="onInit()">
         <div class="main-screen hide full" onclick="onToggleMenu()"></div>
         <header class="main-header full main-layout">
-            <!-- CR This Part -->
             <section class="header-content header-layout">
                 <div class="logo header-logo">
-                    <img class="logo-img" src="img/logo.png" />
+                    <a onclick="onInit()"
+                        ><img class="logo-img" src="img/logo.png"
+                    /></a>
                 </div>
                 <nav class="main-nav">
                     <ul class="nav-list flex justify-end clean-list">
@@ -29,54 +30,115 @@
                     </ul>
                 </nav>
                 <button class="menu-btn" type="button" onclick="onToggleMenu()">
-                    <!-- ☰ -->
                     <img src="img/menu-btn.png" />
                 </button>
             </section>
         </header>
         <section class="gallery"></section>
-        <section class="editor">
-            <button onclick="onInit()">Go Back</button>
-            <canvas
-                id="canvas"
-                height="500"
-                width="500"
-                style="border: 1px solid black"
-            ></canvas>
-            <form></form>
-            <input
-                class="stroke-color"
-                type="color"
-                oninput="onSetStrokeColor(this.value)"
-            />
-            <input
-                class="font-color"
-                type="color"
-                oninput="onSetFontColor(this.value)"
-                value="#FFFFFF"
-            />
-            <button class="switch-line" onclick="onSwitchLine()">
-                Switch Line
-            </button>
-            <button class="add-line" onclick="onAddLine()">Add Line</button>
-            <button class="add-line" onclick="onDeleteLine()">
-                Delete Line
-            </button>
-            <button class="increase-font" onclick="onChangeSize(1)">+</button>
-            <button class="decrease-font" onclick="onChangeSize(-1)">-</button>
-            <a href="#" onclick="downloadCanvas(this)" download="file-name">
-                Download
-            </a>
-        </section>
+        <div class="editor">
+            <div class="canvas-container">
+                <button class="go-back" onclick="onInit()">Go Back</button>
+                <canvas id="canvas" height="500" width="500"></canvas>
+            </div>
+            <div class="editor-tools">
+                <div class="editor-tools-first-line">
+                    <!-- <div class="tools-headline"> -->
+                    <p class="tools-headline">Edit Text Lines</p>
+                    <!-- </div> -->
+                    <!-- <div class="first-line-tools"> -->
+                    <button
+                        class="no-border switch-line"
+                        onclick="onSwitchLine()"
+                    >
+                        <img src="img/switch.png" />
+                    </button>
+                    <button class="no-border add-line" onclick="onAddLine()">
+                        <img src="img/add.png" />
+                    </button>
+                    <button class="no-border add-line" onclick="onDeleteLine()">
+                        <img src="img/delete.png" />
+                    </button>
+                    <!-- </div> -->
+                </div>
+                <div class="editor-tools-second-line">
+                    <button
+                        class="no-border decrease-font"
+                        onclick="onChangeSize(-1)"
+                    >
+                        A
+                    </button>
+                    <button
+                        class="no-border increase-font"
+                        onclick="onChangeSize(1)"
+                    >
+                        A
+                    </button>
+                    <img src="img/line.png" />
+                    <button
+                        class="no-border align-left"
+                        onclick="onChangeAlign('right')"
+                    >
+                        <img src="img/align-left.png" />
+                    </button>
+                    <button
+                        class="no-border align-center"
+                        onclick="onChangeAlign('center')"
+                    >
+                        <img src="img/align-center.png" />
+                    </button>
+                    <button
+                        class="no-border align-right"
+                        onclick="onChangeAlign('left')"
+                    >
+                        <img src="img/align-right.png" />
+                    </button>
+                    <img src="img/line.png" />
+                    <div>
+                        <label for="stroke-color">
+                            <img src="img/stroke-font.png" alt="" />
+                        </label>
+                        <input
+                            id="stroke-color"
+                            class="stroke-color"
+                            type="color"
+                            oninput="onSetStrokeColor(this.value)"
+                        />
+                    </div>
+                    <div>
+                        <label for="fill-color">
+                            <img src="img/fill-font.png" alt=""
+                        /></label>
+                        <input
+                            id="fill-color"
+                            class="font-color"
+                            type="color"
+                            oninput="onSetFontColor(this.value)"
+                            value="#FFFFFF"
+                        />
+                    </div>
+                </div>
+                <div class="line-input-form"></div>
+                <div class="download-meme-container">
+                    <a
+                        class="download-meme"
+                        href="#"
+                        onclick="downloadCanvas(this)"
+                        download="file-name"
+                    >
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
         <section class="about">
             <h1>Welcome to my MemeGen</h1>
             <p>Hope you like it :)</p>
             <p class="smaller-txt">
-                © 2022 All Rights Reserved to Elihai Sugarman
+                © 2022 Elihai Sugarman - All Rights Reserved
             </p>
         </section>
         <section class="saved-memes">
-            <h1>There are no ready memes yet...</h1>
+            <h1>This feature is still in developement...</h1>
         </section>
 
         <script src="js/memeService.js"></script>

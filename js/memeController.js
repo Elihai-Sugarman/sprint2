@@ -16,7 +16,7 @@ function renderMeme() {
 function renderInput() {
     const line = getCurrLine()
     document.querySelector(
-        'form'
+        '.line-input-form'
     ).innerHTML = `<input class="input-txt type="text" oninput="onInput(this.value)" placeholder="${line.txt}" />`
 }
 
@@ -85,6 +85,11 @@ function onSetFontColor(color) {
     renderPicture()
 }
 
+function onChangeAlign(align) {
+    changeAlign(align)
+    renderPicture()
+}
+
 function onChangeSize(diff) {
     changeSize(diff)
     renderPicture()
@@ -106,7 +111,7 @@ function onDeleteLine() {
     let placeholder = ''
     if (deleteLine()) placeholder = getCurrLine().txt
     document.querySelector(
-        'form'
+        '.line-input-form'
     ).innerHTML = `<input class="input-txt type="text" oninput="onInput(this.value)" placeholder="${placeholder}" />`
     renderPicture()
 }
