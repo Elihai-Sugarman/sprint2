@@ -21,7 +21,13 @@ body {
     font-weight: 500;
     font-size: 18px;
     color: #727272;
-    min-width: 500px;
+    min-width: 350px;
+}
+
+.search-input {
+    width: 80vw;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .clean-list {
@@ -34,9 +40,15 @@ body {
     margin-top: 20px;
 }
 
+body.show-menu > *:not(:first-child) * {
+    display: none;
+}
+
 body.show-menu * {
     background: #ff9826;
     box-shadow: 0px 1px 0px #dbdbdb;
+    margin: 0;
+    margin-right: 0;
 }
 
 body.show-menu .logo-img {
@@ -45,7 +57,7 @@ body.show-menu .logo-img {
 
 body.show-menu .main-nav {
     display: flex;
-    z-index: 5;
+    /* z-index: 5; */
 }
 
 body.show-menu img.pick {
@@ -67,9 +79,10 @@ body.show-menu .menu-btn {
 
 .header-layout {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     top: 0px;
+    margin-right: 0px;
     margin-top: 10px;
     background: #ffffff;
     box-shadow: 0px 1px 0px #dbdbdb;
@@ -79,7 +92,7 @@ body.show-menu .menu-btn {
     position: absolute;
     width: 152px;
     height: 32px;
-    left: 5%;
+    left: 60px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -119,7 +132,7 @@ ul li a {
 
 .menu-btn {
     position: absolute;
-    right: 5%;
+    right: 60px;
     top: 50%;
     transform: translateY(-50%);
 
@@ -146,6 +159,8 @@ ul li a {
     padding: 60px;
     width: auto;
     margin: 0 auto;
+    column-gap: 10px;
+    grid-column-gap: 10px;
 }
 
 .item {
@@ -175,6 +190,10 @@ ul li a {
 }
 
 .editor {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
     width: 80vw;
 }
 
@@ -186,11 +205,10 @@ ul li a {
 
 .editor-tools {
     background-color: white;
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    z-index: -2;
 }
 
 .editor-tools-first-line {
@@ -200,12 +218,12 @@ ul li a {
 }
 
 .tools-headline {
-    text-align: left;
-    margin-left: 14%;
+    padding-top: 10px;
+    margin-left: 30px;
 }
 
 .editor-tools-second-line {
-    margin-left: 12%;
+    margin-left: 20px;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -231,7 +249,7 @@ ul li a {
 
 .line-input-form input {
     margin-top: 10px;
-    width: 400px;
+    width: 380px;
     height: 2em;
 }
 
@@ -257,8 +275,12 @@ ul li a {
     cursor: pointer;
 }
 
+.flexible-btn {
+    margin-bottom: 10px;
+}
+
 .download-meme {
-    margin-right: 150px;
+    margin-right: 10px;
 }
 
 body.show-menu .download-meme,
@@ -269,6 +291,10 @@ body.show-menu .flexible-btn {
 
 @media (min-width: 950px) {
     .editor {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
         display: flex;
         flex-direction: row;
     }

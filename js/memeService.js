@@ -2,7 +2,7 @@
 
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 var gImgs = [
-    { id: 1, url: 'img/1.jpg', keywords: ['turmp', 'politics'] },
+    { id: 1, url: 'img/1.jpg', keywords: ['trump', 'politics'] },
     { id: 2, url: 'img/2.jpg', keywords: ['dog', 'animals'] },
     { id: 3, url: 'img/3.jpg', keywords: ['dog', 'animals', 'baby'] },
     { id: 4, url: 'img/4.jpg', keywords: ['cat', 'animals'] },

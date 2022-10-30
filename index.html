@@ -8,7 +8,6 @@
         <title>Meme Generator</title>
     </head>
     <body onload="onInit()">
-        <div class="main-screen hide" onclick="onToggleMenu()"></div>
         <header class="main-header main-layout">
             <section class="header-content header-layout">
                 <div class="logo header-logo">
@@ -43,7 +42,7 @@
                 <button class="go-back" onclick="onOpenGallery()">
                     Go Back
                 </button>
-                <canvas id="canvas" height="500" width="500"></canvas>
+                <canvas id="canvas" height="400" width="400"></canvas>
             </div>
             <div class="editor-tools">
                 <div class="editor-tools-first-line">
@@ -52,18 +51,21 @@
                     <!-- </div> -->
                     <!-- <div class="first-line-tools"> -->
                     <button
+                        title="Switch Line"
                         class="no-border switch-line click"
                         onclick="onSwitchLine()"
                     >
                         <img src="img/switch.png" />
                     </button>
                     <button
+                        title="Add Line"
                         class="no-border add-line click"
                         onclick="onAddLine()"
                     >
                         <img src="img/add.png" />
                     </button>
                     <button
+                        title="Delete Line"
                         class="no-border add-line click"
                         onclick="onDeleteLine()"
                     >
@@ -73,12 +75,14 @@
                 </div>
                 <div class="editor-tools-second-line">
                     <button
+                        title="Decrease Font Size"
                         class="no-border decrease-font click"
                         onclick="onChangeSize(-1)"
                     >
                         A
                     </button>
                     <button
+                        title="Increase Font Size"
                         class="no-border increase-font click"
                         onclick="onChangeSize(1)"
                     >
@@ -86,18 +90,21 @@
                     </button>
                     <img src="img/line.png" />
                     <button
+                        title="Align text to the right"
                         class="no-border align-left click"
                         onclick="onChangeAlign('right')"
                     >
                         <img src="img/align-left.png" />
                     </button>
                     <button
+                        title="Align text to the center"
                         class="no-border align-center click"
                         onclick="onChangeAlign('center')"
                     >
                         <img src="img/align-center.png" />
                     </button>
                     <button
+                        title="Align text to the left"
                         class="no-border align-right click"
                         onclick="onChangeAlign('left')"
                     >
@@ -107,6 +114,7 @@
                     <div>
                         <label for="stroke-color">
                             <img
+                                title="Change Stroke Color"
                                 class="click"
                                 src="img/stroke-font.png"
                                 alt=""
@@ -121,7 +129,11 @@
                     </div>
                     <div>
                         <label for="fill-color">
-                            <img class="click" src="img/fill-font.png" alt=""
+                            <img
+                                title="Change Font Color"
+                                class="click"
+                                src="img/fill-font.png"
+                                alt=""
                         /></label>
                         <input
                             id="fill-color"
@@ -132,9 +144,10 @@
                         />
                     </div>
                 </div>
-                <div class="line-input-form"></div>
+                <div title="Edit Text" class="line-input-form"></div>
                 <div class="download-meme-container">
                     <a
+                        title="Download Meme"
                         class="download-meme"
                         href="#"
                         onclick="downloadCanvas(this)"
@@ -142,7 +155,11 @@
                     >
                         Download
                     </a>
-                    <button class="save-meme" onclick="onSaveMeme()">
+                    <button
+                        title="Save Meme"
+                        class="save-meme"
+                        onclick="onSaveMeme()"
+                    >
                         Save
                     </button>
                 </div>
